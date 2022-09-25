@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: Eureka
+
+server:
+  port: 80
+
+eureka:
+  server:
+    peer-node-read-timeout-ms: 300
+    renewal-percent-threshold: 1
+  instance:
+    hostname: 'localhost'
+    prefer-ip-address: true
+    appname: 'eureka-cluster'
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      defaultZone: "http://${eureka.instance.hostname}:${server.port}/eureka/"
+
